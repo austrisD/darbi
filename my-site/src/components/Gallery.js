@@ -1,10 +1,11 @@
 import React from "react";
 import "../css/Gallery.scss";
+import ContentHeader from "./sharedCom";
 
 const Gallery = () => {
   return (
     <>
-      <h2>Gallery</h2>
+      <ContentHeader heading={"gallery"} />
     </>
   );
 };

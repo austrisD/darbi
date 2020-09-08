@@ -1,9 +1,10 @@
 import React from "react";
+import ContentHeader from "./sharedCom";
 
 const Code = () => {
   return (
     <>
-      <h2>CODE CHALLENGES</h2>
+      <ContentHeader heading={"CODE CHALLENGES"} />
     </>
   );
 };

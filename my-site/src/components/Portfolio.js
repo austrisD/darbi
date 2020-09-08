@@ -1,4 +1,5 @@
 import React from "react";
+import ContentHeader from "./sharedCom";
 import {
   FaMobileAlt,
   FaDesktop,
@@ -26,7 +27,7 @@ const Portfolio__element = (siteHeading, link, className, icons, desc) => {
 const Portfolio = () => {
   return (
     <>
-      <h2>Portfolio</h2>
+      <ContentHeader heading={"Portfolio"} />
       <div className="Portfolio_Container">
         {Portfolio__element(
           `Login page`,

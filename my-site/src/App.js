@@ -11,11 +11,13 @@ import { BsChevronDoubleLeft } from "react-icons/bs";
 const App = () => {
   const [ResourceType, setResourceType] = useState(AboutMe);
   useEffect(() => {}, [ResourceType]);
+  /*change man sections content if btn on navbar is prest */
 
-  let [Active, setActive] = useState("inActive");
+  let [Active, setActive] = useState(false);
   let change = () => {
-    setActive((Active = "Active"));
+    setActive((Active = true));
   };
+  /*changing navbar btn color,if section is displayed*/
 
   let [status, setStatus] = useState(`containerShow`);
   let [BtnStyle, setBtnStyle] = useState("");
@@ -28,6 +30,7 @@ const App = () => {
       setBtnStyle((BtnStyle = { transform: "rotate(0deg)" }));
     }
   };
+  /** navbar sliding function */
 
   return (
     <>
@@ -50,20 +53,17 @@ const App = () => {
         </svg>
         <nav>
           <button
-            className={Active}
+            // className={(Active = true ? `inActive` : `Active`)}
             onClick={() => {
               setResourceType(AboutMe);
-              setActive((Active = "Active"));
               hideSidebar();
             }}
           >
             ABOUT ME
           </button>
           <button
-            className={Active}
             onClick={() => {
-              setResourceType(<Skills />);
-              setActive((Active = "Active"));
+              setResourceType(Skills);
               hideSidebar();
             }}
           >

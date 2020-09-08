@@ -6,11 +6,12 @@ import {
   ImYoutube,
   ImInstagram,
 } from "react-icons/im";
+import ContentHeader from "./sharedCom";
 
 const Contacts = () => {
   return (
     <>
-      <h2>Contacts</h2>
+      <ContentHeader heading={"Contacts"} />
       <div className="contacts__links">
         <a
           href="https://www.facebook.com/austris.daugulis"
