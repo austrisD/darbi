@@ -1,10 +1,8 @@
 @import "../css/custom.scss";
 
 #root {
-  @include flexRow;
-  @include desktopView() {
-    padding-left: 258.7px;
-  }
+  position: sticky;
+  overflow: scroll;
 }
 
 .containerHide {
@@ -26,15 +24,13 @@
   box-sizing: border-box;
   background-color: $color1;
   padding: 30px 20px 20px;
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
   transition: 1s;
   z-index: 10;
-  @media (max-height: 730px) {
-    background-color: red;
-  }
-
+  // @include desktopView() {
+  //   position: relative;
+  // }
   .aside__hide__btn {
     color: $color2;
     background-color: $color1;
@@ -109,9 +105,14 @@
 }
 .main__Container {
   @include flexCol;
+  top: 0;
+  position: absolute;
   align-items: center;
   width: 100%;
-  height: 100vh;
+  @include desktopView() {
+    padding-left: 259px;
+    width: calc(100% - 259px);
+  }
   h2 {
     text-align: center;
     text-transform: uppercase;
