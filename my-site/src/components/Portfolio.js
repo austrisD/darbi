@@ -31,7 +31,7 @@ const Portfolio = () => {
       <div className="Portfolio_Container">
         {Portfolio__element(
           `Login page`,
-          `/portfolio_sites/landing/main.html`,
+          `https://austrisd.github.io/landing/`,
           `login__page`,
           <>
             <li>
@@ -56,7 +56,7 @@ const Portfolio = () => {
         )}
         {Portfolio__element(
           `Landing page`,
-          `/portfolio_sites/landing/landing.html`,
+          `https://austrisd.github.io/landing/landing`,
           `landing__page`,
           <>
             <li>
@@ -81,7 +81,7 @@ const Portfolio = () => {
         )}
         {Portfolio__element(
           `Profile page`,
-          `/portfolio_sites/landing/profile.html`,
+          `https://austrisd.github.io/landing/profile`,
           `profile__page`,
           <>
             <li>
