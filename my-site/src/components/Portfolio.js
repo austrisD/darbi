@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import ContentHeader from "./sharedCom";
 import {
   FaMobileAlt,
@@ -6,25 +6,95 @@ import {
   FaTabletAlt,
   FaSass,
   FaBootstrap,
+  FaWindowClose,
 } from "react-icons/fa";
 import { SiJekyll, SiJquery } from "react-icons/si";
 import "../css/Portfolio.scss";
 
-const Portfolio__element = (siteHeading, link, className, icons, desc) => {
-  return (
-    <div className="Portfolio__element">
-      <h3>{siteHeading}</h3>
-      <a href={link}>
-        <div className={`Portfolio__preview ` + className}>
-          <ul className="Portfolio__tech"> {icons}</ul>
-        </div>
-      </a>
-      <p className="Portfolio__description">{desc}</p>
-    </div>
-  );
-};
+// const Portfolio__element = (siteHeading, link, className, icons, desc) => {
+//   return (
+//     <div className="Portfolio__element">
+//       <h3>{siteHeading}</h3>
+//       <div className={`Portfolio__preview ` + className}>
+//         <ul className="Portfolio__tech">
+//           <p>Used tech</p>
+//           {icons}
+//         </ul>
+//         <a href={link}>Visit</a>
+//       </div>
+//       <p className="Portfolio__description">{desc}</p>
+//     </div>
+//   );
+// };
 
 const Portfolio = () => {
+  const [ResourceType, setResourceType] = useState("");
+  useEffect(() => {}, [ResourceType]);
+
+  const element__info = (
+    siteHeading,
+    site__link,
+    supportView,
+    techUsed,
+    elementBGR
+  ) => {
+    return (
+      <>
+        <div
+          className="element__overlay"
+          onClick={() => {
+            setResourceType("");
+          }}
+        ></div>
+        <div className={"element__info__container " + elementBGR}>
+          <FaWindowClose
+            className="closeBTN"
+            onClick={() => {
+              setResourceType("");
+            }}
+          />
+          <h3>{siteHeading}</h3>
+          <ul>{techUsed}</ul>
+          <ul>{supportView}</ul>
+          <a className="site" href={site__link}>
+            Visit site
+          </a>
+        </div>
+      </>
+    );
+  };
+  /** detail windows for portfolio description */
+
+  function Portfolio__element(
+    siteHeading,
+    site__link,
+    className,
+    supportView,
+    techUsed,
+    elementBGR
+  ) {
+    return (
+      <div className={`Portfolio__element ` + className}>
+        <button
+          onClick={() => {
+            setResourceType(
+              element__info(
+                siteHeading,
+                site__link,
+                supportView,
+                techUsed,
+                elementBGR
+              )
+            );
+          }}
+        >
+          Details
+        </button>
+      </div>
+    );
+  }
+  /** element in portfolio sections */
+
   return (
     <>
       <ContentHeader heading={"Portfolio"} />
@@ -44,15 +114,17 @@ const Portfolio = () => {
             <li>
               <FaMobileAlt /> Mobile view
             </li>
+          </>,
+          <>
             <li>
               <SiJekyll /> made with jekyll
             </li>
             <li>
               <FaSass /> SCSS
             </li>
-          </>,
-          `Consectetur est ut aute anim pariatur commodo excepteur fugiat
-          nulla. Ipsum do nostrud esse consectetur cupida`
+          </>
+          // `Consectetur est ut aute anim pariatur commodo excepteur fugiat
+          // nulla. Ipsum do nostrud esse consectetur cupida`
         )}
         {Portfolio__element(
           `Landing page`,
@@ -69,15 +141,17 @@ const Portfolio = () => {
             <li>
               <FaMobileAlt /> Mobile view
             </li>
+          </>,
+          <>
             <li>
               <SiJekyll /> made with jekyll
             </li>
             <li>
               <FaSass /> SCSS
             </li>
-          </>,
-          `Consectetur est ut aute anim pariatur commodo excepteur fugiat
-          nulla. Ipsum`
+          </>
+          // `Consectetur est ut aute anim pariatur commodo excepteur fugiat
+          // nulla. Ipsum`
         )}
         {Portfolio__element(
           `Profile page`,
@@ -94,19 +168,21 @@ const Portfolio = () => {
             <li>
               <FaMobileAlt /> Mobile view
             </li>
+          </>,
+          <>
             <li>
               <SiJekyll /> made with jekyll
             </li>
             <li>
               <FaSass /> SCSS
             </li>
-          </>,
-          `Consectetur est ut aute anim pariatur commodo excepteur fugiat
-          `
+          </>
+          // `Consectetur est ut aute anim pariatur commodo excepteur fugiat
+          // `
         )}
         {Portfolio__element(
           `Webskola.lv`,
-          `/portfolio_sites/My_1th-page/sale.html`,
+          `./portfolio_sites/My_1th-page/sale.html`,
           `webSkola__page`,
           <>
             <li>
@@ -120,7 +196,8 @@ const Portfolio = () => {
               <FaMobileAlt /> Mobile view
             </li>
           </>,
-          `My first wepPage i created`
+          null
+          // `My first wepPage i created`
         )}
         {Portfolio__element(
           `ToDoList`,
@@ -137,6 +214,8 @@ const Portfolio = () => {
             <li>
               <FaMobileAlt /> Mobile view
             </li>
+          </>,
+          <>
             <li>
               <SiJquery /> used jquery
             </li>
@@ -144,11 +223,12 @@ const Portfolio = () => {
               <FaBootstrap />
               Bootstrap
             </li>
-          </>,
-          `Consectetur est ut aute anim pariatur commodo excepteur fugiat
-        `
+          </>
+          //   `Consectetur est ut aute anim pariatur commodo excepteur fugiat
+          // `
         )}
       </div>
+      {ResourceType}
     </>
   );
 };

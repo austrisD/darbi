@@ -3,14 +3,20 @@
 #root {
   position: sticky;
   overflow: auto;
+  // background-image: url("../assets/photos_2017_11_10_fst_snow-frozen-texture.jpg");
+  // background-size: cover;
+  // background-position-y: top;
+  // background-repeat: no-repeat;
 }
 
 .containerHide {
   transform: translateX(-260px);
+
   @include desktopView() {
     transform: translateX(0);
   }
 }
+
 .containerShow {
   transform: unset;
 }
@@ -28,9 +34,10 @@
   top: 0;
   transition: 1s;
   z-index: 10;
-  // @include desktopView() {
-  //   position: relative;
-  // }
+  @include background;
+  background-position: top;
+  background-image: url("../assets/photos_2018_1_11_fst_gray-sky-stormy-weather.jpg");
+
   .aside__hide__btn {
     color: $color2;
     background-color: $color1;
@@ -41,16 +48,20 @@
     position: absolute;
     right: 0;
     top: 0;
+
     @include desktopView() {
       display: none;
     }
+
     &:hover svg {
       color: $color4;
     }
+
     &:focus {
       outline: none;
     }
   }
+
   .aside__Avatar {
     @include background;
     background-image: url(../assets/Avatar.JPG);
@@ -58,19 +69,23 @@
     height: 200px;
     border-radius: 50%;
   }
+
   h1 {
     font-size: 20px;
     text-align: center;
     color: $color4;
   }
+
   .aside__jobTitle {
     font-size: 15px;
     text-align: center;
     color: $color2;
   }
+
   nav {
     @include flexCol;
     margin-top: 30px;
+
     button {
       font-family: Orbitron-regular;
       border: none;
@@ -82,17 +97,21 @@
       margin-bottom: 15px;
       text-align: left;
       white-space: nowrap;
+
       &:hover {
         color: $color4;
       }
+
       &:focus {
         outline: none;
       }
     }
+
     .Active {
       border-left-color: $color4;
     }
   }
+
   footer {
     font-family: Orbitron-regular;
     color: $color2;
@@ -103,22 +122,26 @@
     margin-top: auto;
   }
 }
+
 .main__Container {
   @include flexCol;
   top: 0;
   position: absolute;
   align-items: center;
   width: 100%;
+
   @include desktopView() {
     padding-left: 259px;
     width: calc(100% - 259px);
   }
+
   h2 {
     text-align: center;
     text-transform: uppercase;
     font-size: 40px;
     color: $color2;
   }
+
   .contentHeaderLine {
     width: 90%;
     margin-bottom: 50px;

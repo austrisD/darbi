@@ -7,54 +7,152 @@
   width: 100%;
   gap: 20px;
   text-align: center;
-  .Portfolio__element {
-    max-width: 250px;
-    width: 100%;
-    a {
-      display: block;
-      width: 100%;
-      height: 200px;
-      text-decoration: none;
-      .Portfolio__preview {
-        @include background;
-        background-size: cover;
-        background-position: top;
-        width: 100%;
-        height: 100%;
-        transition: 1s;
-        &:hover .Portfolio__tech {
-          @include flexCol;
-          justify-content: center;
-          height: inherit;
-          background-color: rgba(0, 29, 61, 0.9);
-          opacity: 1;
-          transition: 0.5s;
-        }
-        .Portfolio__tech {
-          margin: 0;
-          opacity: 0;
-          color: $color4;
-          text-align: left;
-          li {
-            list-style: none;
-          }
-        }
-      }
+}
+
+@keyframes background__move {
+  from {
+    background-position: top;
+  }
+
+  to {
+    background-position: bottom;
+  }
+}
+
+.Portfolio__element {
+  @include flexCol;
+  align-items: center;
+  background-size: cover;
+  background-position: top;
+  max-width: 250px;
+  width: 100%;
+  height: 200px;
+  background-color: $color3;
+  box-sizing: border-box;
+  box-shadow: 0 0 5px $color2;
+  border: 1px solid $color2;
+
+  &:hover {
+    animation-name: background__move;
+    animation-duration: 5s;
+    animation-delay: 0.2s;
+    animation-fill-mode: both;
+    animation-play-state: running;
+    animation-iteration-count: 2;
+    animation-timing-function: linear;
+    animation-direction: alternate;
+    border-color: $color1;
+    box-shadow: 0 0 5px $color1;
+  }
+
+  & * {
+    opacity: 0;
+  }
+
+  &:hover * {
+    opacity: 1;
+  }
+
+  button {
+    @include btn;
+    border: none;
+    align-self: flex-end;
+    margin-top: auto;
+    margin-right: -5px;
+    margin-bottom: -5px;
+  }
+}
+
+.element__overlay {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background-color: white;
+  opacity: 0.8;
+  /*chose different color*/
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 20;
+}
+
+@keyframes elementContainer {
+  from {
+    padding-left: 5px;
+    background-color: black;
+  }
+
+  to {
+    padding-left: 100px;
+    background-color: transparent;
+  }
+}
+
+.element__info__container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: fit-content;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  box-shadow: 0 0 5px $color2;
+  border: 1px solid $color2;
+  padding: 5px;
+  padding-left: 100px;
+  z-index: 30;
+
+  animation-name: elementContainer;
+  animation-duration: 2s;
+
+  & * {
+    color: $color1;
+    font-family: Orbitron-regular;
+  }
+
+  h3 {
+    text-align: center;
+  }
+
+  .closeBTN {
+    display: block;
+    margin-left: auto;
+  }
+
+  ul {
+    list-style: none;
+    text-align: left;
+  }
+
+  a {
+    @include btn;
+    display: block;
+    width: fit-content;
+    text-decoration: none;
+    margin: auto -10px -10px auto;
+
+    svg {
+      color: white;
     }
   }
 }
+
 .login__page {
-  background-image: url(../assets/login_prew.jpg);
+  background-image: url(../assets/SignUp__prew.jpg);
 }
+
 .landing__page {
-  background-image: url(../assets/landing_prew.jpg);
+  background-image: url(../assets/landing__prew.jpg);
 }
+
 .profile__page {
-  background-image: url(../assets/profile_prew.jpg);
+  background-image: url(../assets/profile__prew.jpg);
 }
+
 .webSkola__page {
   background-image: url(../assets/webskola.lv_prew.jpg);
 }
+
 .ToDoList_page {
   background-image: url(../assets/todolistPrew.jpg);
 }

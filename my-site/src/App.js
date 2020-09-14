@@ -71,7 +71,7 @@ const App = () => {
           </button>
           <button
             onClick={() => {
-              setResourceType(Portfolio);
+              setResourceType(<Portfolio />);
               hideSidebar();
             }}
           >

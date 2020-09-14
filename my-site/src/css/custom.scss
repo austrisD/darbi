@@ -12,6 +12,7 @@ $small-with: 420px;
   font-family: "Orbitron-Regular";
   src: url(../assets/Orbitron/static/Orbitron-Regular.ttf);
 }
+
 @font-face {
   font-family: "Orbitron-Black";
   src: url(../assets/Orbitron/static/Orbitron-Black.ttf);
@@ -25,10 +26,12 @@ $small-with: 420px;
   justify-content: center;
   text-align: center;
 }
+
 @mixin flexRow {
   display: flex;
   flex-direction: row;
 }
+
 @mixin flexCol {
   display: flex;
   flex-direction: column;
@@ -40,17 +43,36 @@ $small-with: 420px;
   background-position: center;
 }
 
+@mixin btn {
+  padding: 0 15px;
+  line-height: 30px;
+  border-radius: 15px;
+  background-color: $color1;
+  color: $color2;
+  font-family: Orbitron-regular;
+  width: fit-content;
+
+  &:hover {
+    border: 1px solid $color2;
+    padding: 0 14px;
+    line-height: 28px;
+    outline: none;
+  }
+}
+
 /*media queries*/
 @mixin tabletView {
   @media (min-width: #{$tablet-width}) {
     @content;
   }
 }
+
 @mixin desktopView {
   @media (min-width: #{$desktop-width}) {
     @content;
   }
 }
+
 @mixin small-with {
   @media (max-width: #{$small-with}) {
     @content;

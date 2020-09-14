@@ -7,7 +7,7 @@
   width: fit-content;
   height: fit-content;
   // outline: 1px solid black;
-  gap: 10px;
+  gap: 20px;
   justify-content: center;
   padding-bottom: 50px;
 }
@@ -17,4 +17,6 @@
   width: 250px;
   height: 200px;
   background-color: grey;
+  box-shadow: 0 0 5px $color2;
+  border: 1px solid $color2;
 }
