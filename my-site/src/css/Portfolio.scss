@@ -74,22 +74,13 @@
   right: 0;
   left: 0;
   bottom: 0;
-  z-index: 20;
-}
-
-@keyframes elementContainer {
-  from {
-    padding-left: 5px;
-    background-color: black;
-  }
-
-  to {
-    padding-left: 100px;
-    background-color: transparent;
-  }
+  z-index: 2;
 }
 
 .element__info__container {
+  @include flexRow;
+  @include background;
+  background-position: center;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -98,41 +89,136 @@
   box-sizing: border-box;
   box-shadow: 0 0 5px $color2;
   border: 1px solid $color2;
-  padding: 5px;
-  padding-left: 100px;
-  z-index: 30;
-
-  animation-name: elementContainer;
-  animation-duration: 2s;
+  z-index: 3;
+  width: fit-content;
+  padding: 10px;
+  background-color: $color4;
 
   & * {
     color: $color1;
     font-family: Orbitron-regular;
   }
 
-  h3 {
-    text-align: center;
+  .left__Content {
+    @include flexCol;
+    justify-content: flex-end;
+    align-items: center;
+    width: 250px;
+    height: 250px;
+
+    .site__background {
+      top: 30px;
+      width: 225px;
+      height: 126px;
+      position: absolute;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: top;
+
+      .deviceFrame {
+        position: absolute;
+        top: -10px;
+        left: -13px;
+        @include background;
+        background-size: contain;
+        width: 250px;
+        height: 200px;
+      }
+
+      .desktop__frame {
+        top: -10px;
+        left: -13px;
+        background-image: url(../assets/desktop__frame.png);
+      }
+
+      .tablet__frame {
+        top: -21px;
+        left: -65px;
+        background-image: url(../assets/tablet__frame.png);
+      }
+
+      .mobile__frame {
+        top: -6px;
+        left: -82px;
+        background-image: url(../assets/mobile__frame.png);
+      }
+    }
+
+    .desktop__BG__size {
+      width: 225px;
+      height: 126px;
+    }
+
+    .tablet__BG__size {
+      width: 119px;
+      height: 158px;
+    }
+
+    .mobile_BG_size {
+      top: 20px;
+      width: 87px;
+      height: 188px;
+    }
+
+    .infoBTN {
+      @include flexRow;
+      justify-content: center;
+      gap: 10px;
+
+      button {
+        border: none;
+        background-color: transparent;
+
+        // &:hover {
+        // }
+        &:focus {
+          outline: none;
+        }
+
+        svg {
+          height: 30px;
+          width: 30px;
+          fill: $color1;
+        }
+      }
+    }
   }
 
-  .closeBTN {
-    display: block;
-    margin-left: auto;
-  }
-
-  ul {
-    list-style: none;
-    text-align: left;
-  }
-
-  a {
-    @include btn;
-    display: block;
+  .right__Content {
     width: fit-content;
-    text-decoration: none;
-    margin: auto -10px -10px auto;
 
-    svg {
-      color: white;
+    h3 {
+      margin-top: 0;
+      text-align: center;
+    }
+
+    .closeBTN {
+      display: block;
+      margin-left: auto;
+    }
+
+    ul {
+      list-style: none;
+      text-align: left;
+    }
+
+    a {
+      white-space: nowrap;
+      @include btn;
+      display: block;
+      width: fit-content;
+      text-decoration: none;
+      margin: 10px -15px 10px auto;
+
+      svg {
+        white-space: nowrap;
+        fill: $color4;
+        margin-right: -15px;
+        vertical-align: middle;
+        margin-left: 10px;
+        margin-right: -8px;
+        margin-bottom: 2px;
+      }
     }
   }
 }
@@ -156,3 +242,18 @@
 .ToDoList_page {
   background-image: url(../assets/todolistPrew.jpg);
 }
+
+/*background for moving animation at portfolio section*/
+.login__info__bgr {
+  background: url(../assets/SignUp__prew.jpg);
+}
+
+.signUP_tablet_prew {
+  background-image: url(../assets/signUP_tablet_prew.jpg);
+}
+
+.signUP_mobile_prew {
+  background-image: url(../assets/signUP_mobile_prew.jpg);
+}
+
+/*background for info windows*/

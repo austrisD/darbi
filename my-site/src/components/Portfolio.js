@@ -7,25 +7,74 @@ import {
   FaSass,
   FaBootstrap,
   FaWindowClose,
+  FaGithub,
+  FaLink,
+  FaHtml5,
+  FaCss3,
 } from "react-icons/fa";
 import { SiJekyll, SiJquery } from "react-icons/si";
 import "../css/Portfolio.scss";
 
-// const Portfolio__element = (siteHeading, link, className, icons, desc) => {
-//   return (
-//     <div className="Portfolio__element">
-//       <h3>{siteHeading}</h3>
-//       <div className={`Portfolio__preview ` + className}>
-//         <ul className="Portfolio__tech">
-//           <p>Used tech</p>
-//           {icons}
-//         </ul>
-//         <a href={link}>Visit</a>
-//       </div>
-//       <p className="Portfolio__description">{desc}</p>
-//     </div>
-//   );
-// };
+const ELEMENT_VIEW_BTN = (props) => {
+  let [PrintScreen, setPrintScreen] = useState("none");
+
+  let [DeviceFrame, setDeviceFrame] = useState("desktop__frame");
+  let desktopElement = () => {
+    return (
+      <button
+        title="Desktop view"
+        onClick={() => {
+          setDeviceFrame("desktop__frame");
+          setPrintScreen(`desktop__BG__size ${props.desktop}`);
+        }}
+      >
+        <FaDesktop />
+      </button>
+    );
+  };
+
+  let tabletElement = () => {
+    return (
+      <button
+        title="Tablet view"
+        onClick={() => {
+          setDeviceFrame("tablet__frame");
+          setPrintScreen(`tablet__BG__size ${props.tablet}`);
+        }}
+      >
+        <FaTabletAlt />
+      </button>
+    );
+  };
+
+  let mobileElement = () => {
+    return (
+      <button
+        title="Mobile view"
+        onClick={() => {
+          setDeviceFrame("mobile__frame");
+          setPrintScreen(`mobile_BG_size ${props.mobile}`);
+        }}
+      >
+        <FaMobileAlt />
+      </button>
+    );
+  };
+
+  return (
+    <>
+      <div className={`site__background ${PrintScreen}`}>
+        <div className={`deviceFrame ${DeviceFrame}`}></div>
+      </div>
+      <div className="infoBTN">
+        {props.desktop != null ? desktopElement() : ``}
+        {props.tablet != null ? tabletElement() : ``}
+        {props.mobile != null ? mobileElement() : ``}
+      </div>
+    </>
+  );
+};
+/*interactive element in info window*/
 
 const Portfolio = () => {
   const [ResourceType, setResourceType] = useState("");
@@ -34,9 +83,11 @@ const Portfolio = () => {
   const element__info = (
     siteHeading,
     site__link,
-    supportView,
+    git__link,
     techUsed,
-    elementBGR
+    desktopPrew,
+    tabletPrew,
+    mobilePrew
   ) => {
     return (
       <>
@@ -45,45 +96,66 @@ const Portfolio = () => {
           onClick={() => {
             setResourceType("");
           }}
+          /*close info window when clicked on overlay*/
         ></div>
-        <div className={"element__info__container " + elementBGR}>
-          <FaWindowClose
-            className="closeBTN"
-            onClick={() => {
-              setResourceType("");
-            }}
-          />
-          <h3>{siteHeading}</h3>
-          <ul>{techUsed}</ul>
-          <ul>{supportView}</ul>
-          <a className="site" href={site__link}>
-            Visit site
-          </a>
+        <div className="element__info__container">
+          <div className="left__Content">
+            <ELEMENT_VIEW_BTN
+              desktop={desktopPrew}
+              tablet={tabletPrew}
+              mobile={mobilePrew}
+            />
+          </div>
+          <div className="right__Content">
+            <FaWindowClose
+              className="closeBTN"
+              onClick={() => {
+                setResourceType("");
+              }}
+              /*closes info window when clicked on close btn*/
+            />
+            <h3>{siteHeading}</h3>
+
+            <a href={git__link}>
+              Check Code <FaGithub />
+            </a>
+            <ul>{techUsed}</ul>
+            <a className="site" href={site__link}>
+              Visit site
+              <FaLink />
+            </a>
+          </div>
         </div>
       </>
     );
   };
   /** detail windows for portfolio description */
 
-  function Portfolio__element(
+  const Portfolio__element = (
     siteHeading,
     site__link,
+    git__link,
     className,
-    supportView,
     techUsed,
-    elementBGR
-  ) {
+    desktopPrew,
+    tabletPrew,
+    mobilePrew
+  ) => {
     return (
       <div className={`Portfolio__element ` + className}>
         <button
           onClick={() => {
+            // setPrintScreen(a, b, c);
+
             setResourceType(
               element__info(
                 siteHeading,
                 site__link,
-                supportView,
+                git__link,
                 techUsed,
-                elementBGR
+                desktopPrew,
+                tabletPrew,
+                mobilePrew
               )
             );
           }}
@@ -92,8 +164,8 @@ const Portfolio = () => {
         </button>
       </div>
     );
-  }
-  /** element in portfolio sections */
+  };
+  /**single element */
 
   return (
     <>
@@ -102,73 +174,44 @@ const Portfolio = () => {
         {Portfolio__element(
           `Login page`,
           `https://austrisd.github.io/landing/`,
+          "https://github.com/austrisD/darbi/tree/master/landing-Page",
           `login__page`,
           <>
             <li>
-              <FaDesktop /> Desktop view
-            </li>
-            <li>
-              <FaTabletAlt />
-              Tablet view
-            </li>
-            <li>
-              <FaMobileAlt /> Mobile view
-            </li>
-          </>,
-          <>
-            <li>
               <SiJekyll /> made with jekyll
             </li>
             <li>
               <FaSass /> SCSS
             </li>
-          </>
-          // `Consectetur est ut aute anim pariatur commodo excepteur fugiat
-          // nulla. Ipsum do nostrud esse consectetur cupida`
+          </>,
+          "login__info__bgr",
+          "signUP_tablet_prew",
+          "signUP_mobile_prew"
         )}
+
         {Portfolio__element(
           `Landing page`,
           `https://austrisd.github.io/landing/landing`,
+          "https://github.com/austrisD/darbi/tree/master/landing-Page",
           `landing__page`,
           <>
             <li>
-              <FaDesktop /> Desktop view
-            </li>
-            <li>
-              <FaTabletAlt />
-              Tablet view
-            </li>
-            <li>
-              <FaMobileAlt /> Mobile view
-            </li>
-          </>,
-          <>
-            <li>
               <SiJekyll /> made with jekyll
             </li>
             <li>
               <FaSass /> SCSS
             </li>
-          </>
-          // `Consectetur est ut aute anim pariatur commodo excepteur fugiat
-          // nulla. Ipsum`
+          </>,
+          null,
+          null,
+          null
         )}
+
         {Portfolio__element(
           `Profile page`,
           `https://austrisd.github.io/landing/profile`,
+          "https://github.com/austrisD/darbi/tree/master/landing-Page",
           `profile__page`,
-          <>
-            <li>
-              <FaDesktop /> Desktop view
-            </li>
-            <li>
-              <FaTabletAlt />
-              Tablet view
-            </li>
-            <li>
-              <FaMobileAlt /> Mobile view
-            </li>
-          </>,
           <>
             <li>
               <SiJekyll /> made with jekyll
@@ -176,45 +219,37 @@ const Portfolio = () => {
             <li>
               <FaSass /> SCSS
             </li>
-          </>
-          // `Consectetur est ut aute anim pariatur commodo excepteur fugiat
-          // `
+          </>,
+          null,
+          null,
+          null
         )}
+
         {Portfolio__element(
           `Webskola.lv`,
           `./portfolio_sites/My_1th-page/sale.html`,
+          "https://github.com/austrisD/darbi/tree/master/My_1th-page",
           `webSkola__page`,
           <>
             <li>
-              <FaDesktop /> Desktop view
+              <FaHtml5 />
+              Simple Html
             </li>
             <li>
-              <FaTabletAlt />
-              Tablet view
-            </li>
-            <li>
-              <FaMobileAlt /> Mobile view
+              <FaCss3 />
+              Simple CSS
             </li>
           </>,
+          null,
+          null,
           null
-          // `My first wepPage i created`
         )}
+
         {Portfolio__element(
           `ToDoList`,
           `https://austrisd.github.io/ToDoList/`,
+          "https://github.com/austrisD/ToDoList",
           `ToDoList_page`,
-          <>
-            <li>
-              <FaDesktop /> Desktop view
-            </li>
-            <li>
-              <FaTabletAlt />
-              Tablet view
-            </li>
-            <li>
-              <FaMobileAlt /> Mobile view
-            </li>
-          </>,
           <>
             <li>
               <SiJquery /> used jquery
@@ -223,9 +258,10 @@ const Portfolio = () => {
               <FaBootstrap />
               Bootstrap
             </li>
-          </>
-          //   `Consectetur est ut aute anim pariatur commodo excepteur fugiat
-          // `
+          </>,
+          null,
+          null,
+          null
         )}
       </div>
       {ResourceType}

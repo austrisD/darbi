@@ -13,12 +13,6 @@ const App = () => {
   useEffect(() => {}, [ResourceType]);
   /*change man sections content if btn on navbar is prest */
 
-  let [Active, setActive] = useState(false);
-  let change = () => {
-    setActive((Active = true));
-  };
-  /*changing navbar btn color,if section is displayed*/
-
   let [status, setStatus] = useState(`containerShow`);
   let [BtnStyle, setBtnStyle] = useState("");
   const hideSidebar = () => {
