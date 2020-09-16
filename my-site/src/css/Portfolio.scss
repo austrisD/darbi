@@ -108,12 +108,21 @@
 
     .site__background {
       top: 30px;
-      width: 225px;
+      width: 226px;
       height: 126px;
       position: absolute;
       background-repeat: no-repeat;
       background-size: cover;
       background-position: top;
+
+      animation-name: background__move;
+      animation-duration: 5s;
+      animation-delay: 0.2s;
+      animation-fill-mode: both;
+      animation-play-state: running;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+      animation-direction: alternate;
 
       .deviceFrame {
         position: absolute;
@@ -127,7 +136,7 @@
 
       .desktop__frame {
         top: -10px;
-        left: -13px;
+        left: -12px;
         background-image: url(../assets/desktop__frame.png);
       }
 
@@ -145,7 +154,7 @@
     }
 
     .desktop__BG__size {
-      width: 225px;
+      width: 226px;
       height: 126px;
     }
 
@@ -254,6 +263,34 @@
 
 .signUP_mobile_prew {
   background-image: url(../assets/signUP_mobile_prew.jpg);
+}
+
+.landing_Tablet_prew {
+  background-image: url(../assets/landing_Tablet_prew.jpg);
+}
+
+.landing__mobile__prew {
+  background-image: url(../assets/landing__mobile__prew.jpg);
+}
+
+.profile__tablet__prew {
+  background-image: url(../assets/profile__tablet__prew.jpg);
+}
+
+.profile__mobile__prew {
+  background-image: url(../assets/profile__mobile__prew.jpg);
+}
+
+.todolist__tablet__Prew {
+  background-image: url(../assets/todolist__tablet__Prew.jpg);
+}
+
+.todolist__mobile__Prew {
+  background-image: url(../assets/todolist__mobile__Prew.jpg);
+}
+
+.NOT__SELECTED {
+  background-image: url(../assets/NOT__SELECTED.jpg);
 }
 
 /*background for info windows*/

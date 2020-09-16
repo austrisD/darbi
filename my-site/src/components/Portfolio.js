@@ -16,9 +16,9 @@ import { SiJekyll, SiJquery } from "react-icons/si";
 import "../css/Portfolio.scss";
 
 const ELEMENT_VIEW_BTN = (props) => {
-  let [PrintScreen, setPrintScreen] = useState("none");
-
+  let [PrintScreen, setPrintScreen] = useState("NOT__SELECTED");
   let [DeviceFrame, setDeviceFrame] = useState("desktop__frame");
+
   let desktopElement = () => {
     return (
       <button
@@ -202,9 +202,9 @@ const Portfolio = () => {
               <FaSass /> SCSS
             </li>
           </>,
-          null,
-          null,
-          null
+          "landing__page",
+          "landing_Tablet_prew",
+          "landing__mobile__prew"
         )}
 
         {Portfolio__element(
@@ -220,9 +220,9 @@ const Portfolio = () => {
               <FaSass /> SCSS
             </li>
           </>,
-          null,
-          null,
-          null
+          "profile__page",
+          "profile__tablet__prew",
+          "profile__mobile__prew"
         )}
 
         {Portfolio__element(
@@ -259,9 +259,9 @@ const Portfolio = () => {
               Bootstrap
             </li>
           </>,
-          null,
-          null,
-          null
+          "ToDoList_page",
+          "todolist__tablet__Prew",
+          "todolist__mobile__Prew"
         )}
       </div>
       {ResourceType}
