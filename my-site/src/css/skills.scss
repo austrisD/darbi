@@ -2,26 +2,58 @@
 
 .skill_Container {
   @include flexRow;
-  justify-content: center;
   flex-wrap: wrap;
+  justify-content: center;
+  width: calc(100% - 20px);
   gap: 10px;
+
   .skill__Element {
     @include flexCol;
-    justify-content: center;
-    max-width: 80px;
-    height: 80px;
-    width: 100%;
-    padding: 5px;
+    background-color: $color4;
+    flex-basis: max-content;
+    flex-basis: content;
+    flex-grow: 1;
+    padding: 10px 0;
+
     p {
-      text-align: center;
+      align-self: center;
       font-family: Orbitron-Regular;
       margin: 0;
-      font-size: 12px;
+      margin-bottom: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      width: fit-content;
     }
-    svg {
-      margin: auto;
-      width: 50px;
-      height: 50px;
+
+    .skill__inner__container {
+      @include flexRow;
+      flex-grow: 1;
+
+      svg {
+        width: 50px;
+        height: 50px;
+        align-self: center;
+        margin-left: 5%;
+      }
+
+      ul {
+        @include flexCol;
+        justify-content: center;
+        padding: 0;
+        margin: 0 auto;
+
+        li {
+          @include flexRow;
+          width: fit-content;
+          white-space: nowrap;
+          svg {
+            height: 20px;
+            width: 20px;
+            margin: 0;
+            padding: 0;
+          }
+        }
+      }
     }
   }
 }

@@ -12,6 +12,7 @@ import {
   FaHtml5,
   FaCss3,
 } from "react-icons/fa";
+import { BsInfoCircleFill } from "react-icons/bs";
 import { SiJekyll, SiJquery } from "react-icons/si";
 import "../css/Portfolio.scss";
 
@@ -120,7 +121,15 @@ const Portfolio = () => {
               Check Code <FaGithub />
             </a>
             <ul>{techUsed}</ul>
-            <a className="site" href={site__link}>
+            <a
+              className="site"
+              href={site__link != null ? site__link : undefined}
+              style={
+                site__link === null
+                  ? { cursor: "not-allowed" }
+                  : { cursor: "pointer" }
+              }
+            >
               Visit site
               <FaLink />
             </a>
@@ -161,6 +170,7 @@ const Portfolio = () => {
           }}
         >
           Details
+          <BsInfoCircleFill />
         </button>
       </div>
     );
@@ -227,7 +237,7 @@ const Portfolio = () => {
 
         {Portfolio__element(
           `Webskola.lv`,
-          `./portfolio_sites/My_1th-page/sale.html`,
+          null,
           "https://github.com/austrisD/darbi/tree/master/My_1th-page",
           `webSkola__page`,
           <>
@@ -240,9 +250,9 @@ const Portfolio = () => {
               Simple CSS
             </li>
           </>,
-          null,
-          null,
-          null
+          "webSkola__page",
+          "webskola__tablet__prew",
+          "webskola__mobile__prew"
         )}
 
         {Portfolio__element(
