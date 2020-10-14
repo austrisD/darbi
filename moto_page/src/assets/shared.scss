@@ -1,0 +1,54 @@
+@font-face {
+    font-family: lato;
+    src: url(./Lato/Lato-Regular.ttf);
+}
+
+#root {
+    min-height: 100vh;
+}
+
+body {
+    background-image: url(./carbonBG.jpg);
+    background-size: cover;
+}
+
+
+
+header {
+    max-width: 1284px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    nav {
+        svg {
+            fill: #fff;
+            width: 32px;
+            height: 32px;
+        }
+
+
+    }
+
+    .logoHome {
+        white-space: nowrap;
+        color: #fff;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        font-family: lato;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 17px;
+        letter-spacing: 0.085em;
+        svg {
+            fill: #6b6b6b;
+            width: 21px;
+            height: 16px;
+            margin-left: 9px;
+        }
+    }
+}

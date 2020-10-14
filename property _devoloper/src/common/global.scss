@@ -1,0 +1,88 @@
+@font-face {
+  font-family: Arimo-Bold;
+  src: url(./Arimo/Arimo-Bold.ttf);
+}
+
+@font-face {
+  font-family: Arimo-BoldItalic;
+  src: url(./Arimo/Arimo-BoldItalic.ttf);
+}
+
+@font-face {
+  font-family: Arimo-Italic;
+  src: url(./Arimo/Arimo-Italic.ttf);
+}
+
+@font-face {
+  font-family: Arimo-Regular;
+  src: url(./Arimo/Arimo-Regular.ttf);
+}
+
+/*fonts*/
+$darkBlue: #0273b1;
+$liteBlue: #039bd3;
+$darkColor1: #000;
+$darkColor2: #2f3536;
+$darkColor3: #838588;
+$darkColor4: #c3c6c9;
+$darkColor5: #1b292bce;
+$ElementOrange: #e74b0e;
+
+/*color pallet*/
+$tablet-width: 768px;
+$desktop-width: 1200px;
+$small-with: 420px;
+
+/*media queries*/
+@mixin tabletView {
+  @media (max-width: #{$tablet-width}) {
+    @content;
+  }
+}
+
+@mixin desktopView {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
+@mixin small-with {
+  @media (max-width: #{$small-with}) {
+    @content;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+@mixin navBtnAnim {
+  transition: 0.5s;
+  &:hover {
+    transition: 0.5s;
+    padding-top: 4px;
+    margin-bottom: -4px;
+    cursor: pointer;
+  }
+}
+.btn {
+  box-sizing: border-box;
+  white-space: nowrap;
+  line-height: 50px;
+  border: none;
+  margin: 0;
+  padding: 0 10px;
+  background: transparent;
+  color: #fff;
+  font-family: "Arimo-Regular";
+  &:focus {
+    outline: none;
+    cursor: pointer;
+  }
+
+  &:active {
+    border: none;
+  }
+}

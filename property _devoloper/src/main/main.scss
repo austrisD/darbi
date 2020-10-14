@@ -1,0 +1,202 @@
+@import "../common/global.scss";
+
+body {
+  overflow: hidden;
+}
+
+header {
+  width: 100%;
+  z-index: 2;
+  background-color: $darkColor2;
+
+  .navBar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+    @include tabletView() {
+      justify-content: flex-start;
+      padding-left: 20px;
+    }
+    .home {
+      width: fit-content;
+
+      @media (min-width: $tablet-width) {
+        @include navBtnAnim;
+      }
+    }
+    svg {
+      display: none;
+      fill: $darkColor4;
+      height: 30px;
+      width: 30px;
+      margin: auto 0;
+
+      @include tabletView() {
+        display: block;
+      }
+    }
+
+    .spitNav {
+      display: flex;
+      flex-direction: row;
+      background-color: $darkColor2;
+      z-index: 2;
+
+      .navBTN {
+        @media (min-width: $tablet-width) {
+          @include navBtnAnim;
+        }
+      }
+
+      @include tabletView() {
+        div,
+        button {
+          display: none;
+        }
+
+        svg {
+          display: block;
+        }
+      }
+    }
+
+    .MenuDeactivate {
+      @media (max-width: $tablet-width) {
+      }
+    }
+
+    .MenuActive {
+      @media (max-width: $tablet-width) {
+        position: absolute;
+        box-sizing: border-box;
+        flex-direction: column;
+        height: 100%;
+        right: 0;
+        width: 150px;
+        z-index: 5;
+        justify-content: flex-start;
+        align-items: center;
+        border-left: 2px solid $darkBlue;
+        background-color: #fff;
+
+        overflow: hidden;
+
+        > * {
+          color: $darkColor2;
+          font-family: "Arimo-Bold";
+        }
+
+        svg {
+          margin: 10px 0 0;
+          fill: $darkColor2;
+        }
+
+        .dropdown {
+          display: flex;
+          flex-direction: column;
+
+          .dropdownContent {
+            position: relative;
+            width: 140px;
+          }
+        }
+
+        button {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+.bg-contain {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  height: calc(100vh - 100px);
+  width: 100vw;
+  overflow-y: hidden;
+  overflow-x: auto;
+  background-color: $darkColor4;
+}
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  position: sticky;
+  bottom: 0;
+  background-color: $darkColor2;
+  color: #fff;
+  font-family: "Arimo-Regular";
+
+  .footerContent {
+    display: flex;
+    flex-direction: row;
+    justify-items: flex-end;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+
+    p {
+      line-height: 50px;
+      font-size: 14px;
+      margin-left: auto;
+      margin-right: 10px;
+    }
+  }
+}
+
+@keyframes subMenu {
+  from {
+    transform: rotateX(90deg);
+  }
+
+  to {
+    transform: rotateX(0deg);
+  }
+}
+
+.dropdown {
+  @include tabletView() {
+    position: relative;
+    text-align: center;
+    width: fit-content;
+  }
+
+  @media (min-width: $tablet-width) {
+    @include navBtnAnim;
+  }
+
+  .dropdownContent {
+    display: none;
+    position: absolute;
+    flex-direction: column;
+    transition: 2s;
+    border-radius: 5px;
+    transform-origin: top;
+    background-color: $darkColor3;
+    z-index: 1;
+    margin-top: -4px;
+
+    @include tabletView() {
+      margin-top: 0;
+      position: relative;
+
+      .btn {
+        color: $darkColor2;
+      }
+    }
+  }
+
+  &:hover > .dropdownContent {
+    animation-name: subMenu;
+    animation-duration: 1s;
+    display: flex;
+  }
+}
