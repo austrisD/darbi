@@ -3,6 +3,11 @@
     src: url(./Lato/Lato-Regular.ttf);
 }
 
+@font-face {
+    font-family: 'Italianno';
+    src: url(./Italianno-Regular.ttf);
+}
+
 #root {
     min-height: 100vh;
 }
@@ -44,6 +49,7 @@ header {
         font-size: 14px;
         line-height: 17px;
         letter-spacing: 0.085em;
+
         svg {
             fill: #6b6b6b;
             width: 21px;
