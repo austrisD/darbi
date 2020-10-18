@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import "normalize.css";
-import "./css/global.scss";
-import { BsChevronDoubleLeft } from "react-icons/bs";
+import "./css/index.scss";
+import { BsChevronDoubleLeft, BsChevronDoubleRight } from "react-icons/bs";
 import { GrRadialSelected } from "react-icons/gr";
 import Selection from "./slider/slide_component";
 import PhotoGallery from "./slider/slide_Photo";
@@ -24,7 +24,9 @@ const VideoContainer = () => {
     </div>
   );
 };
-let act = 0;
+let act = 0,
+  swipeStart,
+  swipeEnd;
 const App = () => {
   const sliderArray = [
     Selection,
@@ -34,7 +36,7 @@ const App = () => {
     "AUSTRIS",
     VideoContainer,
   ];
-  const [ChangeActive, setChangeActive] = useState(sliderArray[5]);
+  const [ChangeActive, setChangeActive] = useState(sliderArray[3]);
   let displayDot = sliderArray.map((val) => (
     <GrRadialSelected
       key={Math.random() * 100}
@@ -44,6 +46,7 @@ const App = () => {
     />
   ));
   let ChangeActiveContent = (a) => {
+    /*swipeHandle func is depended on this function */
     if (a === "+") act = act + 1;
     if (a === "+" && act > sliderArray.length - 1) act = 0;
     /*if right slider btn is prest*/
@@ -52,17 +55,28 @@ const App = () => {
     /*if left slider btn is prest*/
     setChangeActive(sliderArray[act]);
   };
+  let swipeHandle = (eventType, ev) => {
+    if (eventType === "start") {
+      console.log("star:" + ev.touches[0].clientX);
+    }
+    if (eventType === "end") {
+      console.log("end:" + ev.changedTouches[0].clientX);
+    }
+  };
   return (
     <>
       <header>Slider made using array</header>
       <main>
         <div
           className="sliderContainer"
-          onTouchStart={() => {
-            console.log("start");
+          // onTouchMove={(event) => {
+          //   swipeHandle(event);
+          // }}
+          onTouchStart={(ev) => {
+            swipeHandle("start", ev);
           }}
-          onTouchEnd={() => {
-            console.log("end");
+          onTouchEnd={(ev) => {
+            swipeHandle("end", ev);
           }}
         >
           <div
@@ -80,7 +94,7 @@ const App = () => {
               ChangeActiveContent(`+`);
             }}
           >
-            <BsChevronDoubleLeft />
+            <BsChevronDoubleRight />
           </div>
           {/*********Slider Buttons******/}
           <div className="slideSelection">{displayDot}</div>

@@ -1,3 +1,22 @@
+@import "../css/variables.scss";
+details {
+  border: 2px solid #000;
+  border-radius: 10px;
+  width: 50%;
+  summary {
+    background-color: grey;
+    border-radius: 10px;
+  }
+}
+/*css for CheckTasks*/
+.sliderTextContainer {
+  padding: 50px;
+  overflow-y: auto;
+  @include tablet() {
+    overflow-y: hidden;
+  }
+}
+/*css for slide Slider_text*/
 .gallery {
   display: grid;
   gap: 5px;

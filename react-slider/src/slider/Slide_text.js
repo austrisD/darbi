@@ -1,8 +1,9 @@
 import React from "react";
+import "./SliderCss.scss";
 
 const SlideText = () => {
   return (
-    <div style={{ padding: "0 40px" }}>
+    <div className="sliderTextContainer">
       <span style={{ fontWeight: "bold" }}>lorem Buzzwords </span> loreDo you
       have a virally-distributed plan of action for managing emerging
       partnerships? Without data hygiene supervising, you will lack

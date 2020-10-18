@@ -1,5 +1,5 @@
 import React from "react";
-import "./CheckTask.scss";
+import "./SliderCss.scss";
 
 const CheckTask = () => {
   return (

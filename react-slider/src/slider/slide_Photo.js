@@ -1,5 +1,5 @@
 import React from "react";
-import "./photoGallery.scss";
+import "./SliderCss.scss";
 
 const photoGallery = () => {
   return (
