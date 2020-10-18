@@ -1,0 +1,57 @@
+.gallery {
+  display: grid;
+  gap: 5px;
+  margin: 0 auto;
+  grid-template-columns: auto auto auto auto;
+  grid-template-rows: auto auto auto;
+  width: 100%;
+  height: 100%;
+  div {
+    border: 1px solid black;
+    background-color: bisque;
+    border-radius: 3px;
+    background-size: cover;
+    background-position: center;
+    transition: 1s;
+    &:hover {
+      transition: 1s;
+    }
+  }
+}
+
+.jpg1 {
+  background-image: url(https://images.pexels.com/photos/3030268/pexels-photo-3030268.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500);
+}
+.jpg2 {
+  background-image: url(https://images.pexels.com/photos/594660/pexels-photo-594660.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500);
+}
+.jpg3 {
+  background-image: url(https://images.pexels.com/photos/3663368/pexels-photo-3663368.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500);
+}
+.jpg4 {
+  background-image: url(https://images.pexels.com/photos/1080722/pexels-photo-1080722.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500);
+}
+.jpg5 {
+  background-image: url(https://images.pexels.com/photos/4942679/pexels-photo-4942679.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500);
+}
+.jpg6 {
+  background-image: url(https://images.pexels.com/photos/931881/pexels-photo-931881.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500);
+}
+.jpg7 {
+  background-image: url(https://images.pexels.com/photos/789381/pexels-photo-789381.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500);
+}
+.jpg8 {
+  background-image: url(https://images.pexels.com/photos/402028/pexels-photo-402028.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500);
+}
+.jpg9 {
+  background-image: url(https://images.pexels.com/photos/161401/fushimi-inari-taisha-shrine-kyoto-japan-temple-161401.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500);
+}
+.jpg10 {
+  background-image: url(https://images.pexels.com/photos/161150/kiyomizu-dera-temple-kyoto-japan-161150.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500);
+}
+.jpg11 {
+  background-image: url(https://images.pexels.com/photos/46253/mt-fuji-sea-of-clouds-sunrise-46253.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500);
+}
+.jpg12 {
+  background-image: url(https://images.pexels.com/photos/161164/senso-ji-kyoto-japan-temple-161164.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500);
+}
