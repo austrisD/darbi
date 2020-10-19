@@ -24,9 +24,7 @@ const VideoContainer = () => {
     </div>
   );
 };
-let act = 0,
-  swipeStart,
-  swipeEnd;
+let act = 0;
 const App = () => {
   const sliderArray = [
     Selection,
@@ -55,13 +53,30 @@ const App = () => {
     /*if left slider btn is prest*/
     setChangeActive(sliderArray[act]);
   };
-  let swipeHandle = (eventType, ev) => {
-    if (eventType === "start") {
-      console.log("star:" + ev.touches[0].clientX);
-    }
-    if (eventType === "end") {
-      console.log("end:" + ev.changedTouches[0].clientX);
-    }
+
+  let swipeHandle = {
+    SwipeStart: null,
+    SwipeEnd: null,
+    SwipeLength: null,
+    swipeMethod: (eventType) => {
+      if (eventType === "end") {
+        swipeHandle.SwipeLength = Math.abs(
+          swipeHandle.SwipeStart - swipeHandle.SwipeEnd
+        );
+      }
+      if (swipeHandle.SwipeLength > 200) {
+        if (swipeHandle.SwipeStart > swipeHandle.SwipeEnd) {
+          ChangeActiveContent(`+`);
+        } else {
+          ChangeActiveContent(`-`);
+        }
+      }
+    },
+    SwipeLog: () => {
+      console.log(
+        `start ${swipeHandle.SwipeStart} end: ${swipeHandle.SwipeEnd} length: ${swipeHandle.SwipeLength}`
+      );
+    },
   };
   return (
     <>
@@ -69,14 +84,12 @@ const App = () => {
       <main>
         <div
           className="sliderContainer"
-          // onTouchMove={(event) => {
-          //   swipeHandle(event);
-          // }}
           onTouchStart={(ev) => {
-            swipeHandle("start", ev);
+            swipeHandle.SwipeStart = ev.touches[0].clientX;
           }}
           onTouchEnd={(ev) => {
-            swipeHandle("end", ev);
+            swipeHandle.SwipeEnd = ev.changedTouches[0].clientX;
+            swipeHandle.swipeMethod("end");
           }}
         >
           <div
