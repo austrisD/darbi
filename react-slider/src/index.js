@@ -10,6 +10,7 @@ import {
   Selection,
   CheckTask,
   PhotoGallery,
+  GitLink,
 } from "./sliderContent/SlideContent";
 
 let act = 0;
@@ -27,6 +28,7 @@ const App = () => {
       );
     },
     VideoContainer,
+    GitLink,
   ];
   const [ChangeActive, setChangeActive] = useState(sliderArray[1]);
   let displayDot = sliderArray.map((val) => (

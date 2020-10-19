@@ -1,6 +1,8 @@
 import React from "react";
 import Video from "../assets/video.mp4";
 import "./SliderCss.scss";
+import { FaGithub } from "react-icons/fa";
+
 import { BsInfoCircle } from "react-icons/bs";
 import { FaMobileAlt, FaHandPointUp } from "react-icons/fa";
 
@@ -112,5 +114,19 @@ export const PhotoGallery = () => {
       <div className="jpg11"></div>
       <div className="jpg12"></div>
     </div>
+  );
+};
+
+export const GitLink = () => {
+  return (
+    <>
+      <p>Link to source code</p>
+      <a href="https://github.com/austrisD/darbi/tree/master/react-slider">
+        <FaGithub
+          title="Click here"
+          style={{ width: "100px", height: "100px", fill: "#000" }}
+        />
+      </a>
+    </>
   );
 };
