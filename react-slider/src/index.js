@@ -4,26 +4,14 @@ import "normalize.css";
 import "./css/index.scss";
 import { BsChevronDoubleLeft, BsChevronDoubleRight } from "react-icons/bs";
 import { GrRadialSelected } from "react-icons/gr";
-import Selection from "./slider/slide_component";
-import PhotoGallery from "./slider/slide_Photo";
-import SlideText from "./slider/Slide_text";
-import CheckTask from "./slider/checkTask";
-import Video from "./assets/video.mp4";
+import {
+  VideoContainer,
+  SlideText,
+  Selection,
+  CheckTask,
+  PhotoGallery,
+} from "./sliderContent/SlideContent";
 
-const VideoContainer = () => {
-  return (
-    <div
-      style={{
-        width: "100%",
-        overflow: "hidden",
-      }}
-    >
-      <video autoPlay loop>
-        <source src={Video} type="video/mp4" />
-      </video>
-    </div>
-  );
-};
 let act = 0;
 const App = () => {
   const sliderArray = [
@@ -64,7 +52,7 @@ const App = () => {
           swipeHandle.SwipeStart - swipeHandle.SwipeEnd
         );
       }
-      if (swipeHandle.SwipeLength > 200) {
+      if (swipeHandle.SwipeLength > 100) {
         if (swipeHandle.SwipeStart > swipeHandle.SwipeEnd) {
           ChangeActiveContent(`+`);
         } else {
