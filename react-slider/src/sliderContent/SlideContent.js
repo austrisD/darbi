@@ -68,7 +68,7 @@ export const Selection = () => {
 /*************************************************/
 export const CheckTask = () => {
   return (
-    <>
+    <div className="CheckTask">
       <details>
         <summary title="more info">
           Works with any Content
@@ -94,7 +94,7 @@ export const CheckTask = () => {
         </summary>
         <p>Simple media queries</p>
       </details>
-    </>
+    </div>
   );
 };
 /*************************************************/

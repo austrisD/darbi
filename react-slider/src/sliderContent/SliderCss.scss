@@ -1,4 +1,14 @@
 @import "../css/variables.scss";
+
+.CheckTask {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: fit-content;
+  overflow-y: scroll;
+  padding: 40px 0;
+}
 details {
   border: 2px solid #000;
   border-radius: 10px;
@@ -10,18 +20,22 @@ details {
   summary {
     display: flex;
     flex-direction: row;
-    white-space: nowrap;
     justify-content: space-between;
     border: none;
     cursor: pointer;
     outline: none;
     padding: 10px;
+    @include mobile() {
+      font-size: 15px;
+      line-height: 20px;
+    }
+
     &::-webkit-details-marker {
       color: transparent;
     }
 
     svg {
-      margin-right: 10px;
+      margin: 0 10px;
       width: 30px;
       height: 30px;
     }
@@ -35,6 +49,9 @@ details {
     margin: 0;
     line-height: 20px;
     margin-top: 20px;
+    @include tablet() {
+      font-size: 15px;
+    }
   }
 }
 details[open] summary ~ * {
