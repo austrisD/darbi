@@ -19,10 +19,16 @@ const App = () => {
     CheckTask,
     PhotoGallery,
     SlideText,
-    "AUSTRIS",
+    () => {
+      return (
+        <p style={{ fontFamily: "Roboto-BoldItalic", fontSize: "40px" }}>
+          AUSTRIS
+        </p>
+      );
+    },
     VideoContainer,
   ];
-  const [ChangeActive, setChangeActive] = useState(sliderArray[3]);
+  const [ChangeActive, setChangeActive] = useState(sliderArray[1]);
   let displayDot = sliderArray.map((val) => (
     <GrRadialSelected
       key={Math.random() * 100}

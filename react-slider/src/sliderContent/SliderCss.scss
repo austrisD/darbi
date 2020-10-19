@@ -3,20 +3,112 @@ details {
   border: 2px solid #000;
   border-radius: 10px;
   width: 50%;
+  -webkit-appearance: none;
+  font-family: "Nunito-ExtraBold";
+  line-height: 30px;
+  margin-bottom: 10px;
   summary {
-    background-color: grey;
-    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    white-space: nowrap;
+    justify-content: space-between;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    padding: 10px;
+    &::-webkit-details-marker {
+      color: transparent;
+    }
+
+    svg {
+      margin-right: 10px;
+      width: 30px;
+      height: 30px;
+    }
+  }
+  &:hover {
+    box-shadow: 0 0 2px #000;
+  }
+  p {
+    font-family: "Roboto-Medium";
+    padding: 0 0 20px 20px;
+    margin: 0;
+    line-height: 20px;
+    margin-top: 20px;
+  }
+}
+details[open] summary ~ * {
+  animation-name: showDetails;
+  animation-duration: 500ms;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+}
+@keyframes showDetails {
+  from {
+    opacity: 0;
+    margin-top: 0;
+  }
+  to {
+    margin-top: 20px;
+    opacity: 1;
   }
 }
 /*css for CheckTasks*/
 .sliderTextContainer {
   padding: 50px;
   overflow-y: auto;
+  font-family: "Roboto-Regular";
+  font-size: 20px;
+
   @include tablet() {
     overflow-y: hidden;
   }
+  span {
+    font-family: "BebasNeue-Regular";
+    margin-left: 20px;
+  }
 }
-/*css for slide Slider_text*/
+/*css for slide SlideText*/
+
+.selectStyle {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url(../assets/down.svg);
+  padding-right: 40px;
+  padding-left: 10px;
+  background-position: 101%;
+  background-repeat: no-repeat;
+  width: fit-content;
+  background-size: 32px;
+  font-size: 30px;
+  line-height: 30px;
+  border-radius: 15px;
+  font-family: "BebasNeue-Regular";
+  -webkit-appearance: none;
+  box-shadow: none;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: 1s;
+  &:hover {
+    box-shadow: 0 0 5px black;
+  }
+  ::-ms-expand {
+    display: none;
+  }
+  &:focus {
+    outline: none;
+  }
+  option {
+    font-size: 20px;
+    border: none;
+    font-family: "Roboto-Regular";
+    overflow: hidden;
+    box-shadow: none;
+  }
+}
+
+/**css for Selection*/
 .gallery {
   display: grid;
   gap: 5px;

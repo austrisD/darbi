@@ -1,5 +1,4 @@
-@use 'variable';
-
+@import "variables.scss";
 .sliderContent {
   box-sizing: border-box;
   display: flex;
@@ -25,6 +24,9 @@
       width: 30px;
       height: 30px;
       filter: drop-shadow(0 0 2px #ffffff);
+    }
+    @include mobile() {
+      display: none;
     }
   }
   .leftBtn {
