@@ -37,7 +37,7 @@ export const motorSpec = [
     175,
     805,
     "ABS",
-    ["DF1F26", "#141414", "#FFFFFF"],
+    ["#DF1F26", "#141414", "#FFFFFF"],
     "Fresh vibes. Sporty soul."
   ),
 ];

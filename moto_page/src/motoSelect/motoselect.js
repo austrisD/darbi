@@ -3,10 +3,22 @@ import "./motoselect.scss";
 import { motorSpec, languages } from "../data/data";
 
 const MotoSelect = () => {
+  let displayColors = motorSpec[0].color.map((color) => {
+    return (
+      <div
+        className="colorSquare"
+        style={{ backgroundColor: color }}
+        key={color}
+      ></div>
+    );
+  });
+
   return (
     <main>
       <div className="brandLogo"></div>
-      <div className="motoDisplay"></div>
+      <div className="motoDisplay">
+        <img src={require("../assets/Ducati_monster_797.png")} alt="" />
+      </div>
       <div className="details">
         <div className="generalInfo">
           <p>{"Displacement"}</p>
@@ -27,7 +39,7 @@ const MotoSelect = () => {
           <p>{"safety"}</p>
           <p>{motorSpec[0].brake}</p>
         </div>
-        <div className="colorAvailable"></div>
+        <div className="colorAvailable">{displayColors}</div>
         <p className="Detail__desc">
           {"Fresh vibes."}
           <br />
