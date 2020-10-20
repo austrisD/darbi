@@ -9,26 +9,30 @@ const MotoSelect = () => {
       <div className="motoDisplay"></div>
       <div className="details">
         <div className="generalInfo">
-          <p>{languages[0].Displacement}</p>
-          <p>{motorSpec[0].cc}</p>
+          <p>{"Displacement"}</p>
+          <p>{motorSpec[0].cc} cc</p>
 
-          <p>{languages[0].Horse_Power}</p>
-          <p>{motorSpec[0].hp}</p>
+          <p>{"Horse Power"}</p>
+          <p>{motorSpec[0].hp}hp</p>
 
-          <p>{languages[0].Torque}</p>
-          <p>{motorSpec[0].nm}</p>
+          <p>{"Torque"}</p>
+          <p>{motorSpec[0].nm} Nm</p>
 
-          <p>{languages[0].Dry_Weight}</p>
-          <p>{motorSpec[0].weight}</p>
+          <p>{"Dry Weight"}</p>
+          <p>{motorSpec[0].weight} Kg</p>
 
-          <p>{languages[0].set_heigh}</p>
-          <p>{motorSpec[0].seatHeight}</p>
+          <p>{"Seat Height"}</p>
+          <p>{motorSpec[0].seatHeight} mm</p>
 
-          <p>{languages[0].safety}</p>
+          <p>{"safety"}</p>
           <p>{motorSpec[0].brake}</p>
         </div>
         <div className="colorAvailable"></div>
-        <p className="Detail__desc">{motorSpec[0].desc}</p>
+        <p className="Detail__desc">
+          {"Fresh vibes."}
+          <br />
+          {" Sporty soul."}
+        </p>
       </div>
     </main>
   );

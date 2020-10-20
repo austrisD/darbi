@@ -1,60 +1,62 @@
 @font-face {
-    font-family: lato;
-    src: url(./Lato/Lato-Regular.ttf);
+  font-family: lato;
+  src: url(./Lato/Lato-Regular.ttf);
 }
 
 @font-face {
-    font-family: 'Italianno';
-    src: url(./Italianno-Regular.ttf);
+  font-family: "Italianno";
+  src: url(./Italianno-Regular.ttf);
 }
 
 #root {
-    min-height: 100vh;
+  min-height: 100vh;
+}
+html {
+  height: 100vh;
 }
 
 body {
-    background-image: url(./carbonBG.jpg);
-    background-size: cover;
+  box-sizing: border-box;
+  background-image: url(./carbonBG.jpg);
+  background-size: cover;
+  height: 100vh;
+  margin: 0;
+  padding-top: 64px;
+
+  * {
+    box-sizing: border-box;
+  }
 }
-
-
-
 header {
-    max-width: 1284px;
-    margin: 0 auto;
+  max-width: 1284px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  nav {
+    svg {
+      fill: #fff;
+      width: 32px;
+      height: 32px;
+    }
+  }
+  .logoHome {
+    white-space: nowrap;
+    color: #fff;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-
-    nav {
-        svg {
-            fill: #fff;
-            width: 32px;
-            height: 32px;
-        }
-
-
+    align-items: center;
+    font-family: lato;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.085em;
+    svg {
+      fill: #6b6b6b;
+      width: 21px;
+      height: 16px;
+      margin-left: 9px;
     }
-
-    .logoHome {
-        white-space: nowrap;
-        color: #fff;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-
-        font-family: lato;
-        font-style: normal;
-        font-weight: 500;
-        font-size: 14px;
-        line-height: 17px;
-        letter-spacing: 0.085em;
-
-        svg {
-            fill: #6b6b6b;
-            width: 21px;
-            height: 16px;
-            margin-left: 9px;
-        }
-    }
+  }
 }

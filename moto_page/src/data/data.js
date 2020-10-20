@@ -44,14 +44,6 @@ export const motorSpec = [
 
 export const languages = [
   {
-    Displacement: "Displacement",
-    Horse_Power: "Horse Power",
-    Torque: "Torque",
-    Dry_Weight: "Dry Weight",
-    set_height: "Seat Height",
-    safety: "safety",
-  },
-  {
     Displacement: "Kubatūra",
     Horse_Power: "Zirgspēki",
     Torque: "Griezes moments",
