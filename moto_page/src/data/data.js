@@ -1,3 +1,5 @@
+import ducati_monster_803 from "../assets/Ducati_monster_797.png";
+
 class motorConstruct {
   constructor(
     Brand,
@@ -10,7 +12,8 @@ class motorConstruct {
     setHeight,
     brake,
     color,
-    desc
+    desc,
+    photo
   ) {
     this.Brand = Brand;
     this.model = model;
@@ -23,6 +26,7 @@ class motorConstruct {
     this.brake = brake;
     this.color = color;
     this.desc = desc;
+    this.photo = photo;
   }
 }
 
@@ -38,7 +42,8 @@ export const motorSpec = [
     805,
     "ABS",
     ["#DF1F26", "#141414", "#FFFFFF"],
-    "Fresh vibes. Sporty soul."
+    "Fresh vibes. Sporty soul.",
+    ducati_monster_803
   ),
 ];
 

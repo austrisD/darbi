@@ -1,3 +1,4 @@
+@import "../assets/shared.scss";
 .brandLogo {
   width: 322px;
   height: 182px;
@@ -10,14 +11,31 @@
 
 .motoDisplay {
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  max-width: 1060px;
   height: 650px;
-  max-width: 1050px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom;
   width: 100%;
   margin: 0 auto -200px auto;
   position: relative;
+  z-index: 2;
+  @include tablet() {
+    margin-bottom: -100px;
+  }
+  svg {
+    fill: #fff;
+    width: 70px;
+    height: 70px;
+  }
 }
 
 .details {
+  align-self: center;
   box-sizing: border-box;
   padding: 44px 80px 70px 80px;
   display: flex;
@@ -27,12 +45,15 @@
   background-color: #fff;
   max-width: 1440px;
   width: 100%;
-  height: 400px;
   box-shadow: 0px 40px 30px rgba(60, 49, 13, 0.15);
   border-radius: 50px;
   margin: 0 auto;
   z-index: 1;
   margin-bottom: 80px;
+  @include tablet() {
+    justify-content: center;
+    padding-top: 100px;
+  }
 
   .generalInfo {
     display: flex;
@@ -48,6 +69,9 @@
       font-size: 12px;
       line-height: 14px;
       color: #181818;
+      @include tablet() {
+        font-size: 9px;
+      }
     }
 
     p:nth-child(even) {
@@ -59,6 +83,9 @@
       letter-spacing: 0.095em;
       color: #181818;
       margin-bottom: 11px;
+      @include tablet() {
+        font-size: 12px;
+      }
     }
   }
   .colorAvailable {
@@ -66,10 +93,10 @@
     flex-direction: row;
     justify-content: space-between;
     align-self: flex-end;
-    gap: 65px;
+    height: 80px;
+    width: 30%;
     .colorSquare {
       width: 80px;
-      height: 80px;
       border-radius: 10px;
       filter: drop-shadow(0px 4px 16px rgba(0, 0, 0, 0.15));
     }
@@ -83,5 +110,8 @@
     font-size: 50px;
     line-height: 51px;
     letter-spacing: 0.135em;
+    @include tablet() {
+      font-size: 25px;
+    }
   }
 }

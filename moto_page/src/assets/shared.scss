@@ -17,34 +17,28 @@ $mobile-width: 420px;
   }
 }
 @mixin tablet {
-  @media (min-width: #{$tablet-width}) {
+  @media (max-width: #{$tablet-width}) {
     @content;
   }
 }
 @mixin desktop {
-  @media (min-width: #{$desktop-width}) {
+  @media (max-width: #{$desktop-width}) {
     @content;
   }
 }
 /*Media queries mixing*/
 
-#root {
-  min-height: 100vh;
-}
-html {
-  height: 100vh;
-}
+// #root {
+// }
+// html {
+// }
 
 body {
   box-sizing: border-box;
   background-image: url(./carbonBG.jpg);
   background-size: cover;
-  height: 100vh;
   margin: 0;
-  padding-top: 64px;
-  @media (min-height: 1200px) {
-    overflow: hidden;
-  }
+  padding: 64px 80px;
   > * {
     box-sizing: border-box;
   }
@@ -81,4 +75,10 @@ header {
       margin-left: 9px;
     }
   }
+}
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
 }
