@@ -56,12 +56,14 @@ const MotoSelect = () => {
           <p>{"safety"}</p>
           <p>{motorSpec[0].brake}</p>
         </div>
-        <div className="colorAvailable">{displayColors}</div>
-        <p className="Detail__desc">
-          {"Fresh vibes."}
-          <br />
-          {" Sporty soul."}
-        </p>
+        <div className="rightContent">
+          <div className="colorAvailable">{displayColors}</div>
+          <p className="Detail__desc">
+            <p>Fresh vibes.</p>
+            <br />
+            <p>Sporty soul.</p>
+          </p>
+        </div>
       </div>
     </main>
   );

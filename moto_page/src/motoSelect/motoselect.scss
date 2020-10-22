@@ -24,6 +24,9 @@
   margin: 0 auto -200px auto;
   position: relative;
   z-index: 2;
+  @media (max-width: 1370px) {
+    // max-width: 850px;
+  }
   @include tablet() {
     margin-bottom: -100px;
   }
@@ -50,11 +53,9 @@
   margin: 0 auto;
   z-index: 1;
   margin-bottom: 80px;
-  @include tablet() {
-    justify-content: center;
-    padding-top: 100px;
+  @include large() {
+    padding-top: 170px;
   }
-
   .generalInfo {
     display: flex;
     flex-direction: column;
@@ -88,30 +89,55 @@
       }
     }
   }
-  .colorAvailable {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-self: flex-end;
+}
+.rightContent {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+  width: 70%;
+  @include large() {
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+  }
+}
+.colorAvailable {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  max-width: 385px;
+  width: 50%;
+  @include large() {
+    width: 80%;
+  }
+  .colorSquare {
+    width: 80px;
     height: 80px;
-    width: 30%;
-    .colorSquare {
-      width: 80px;
-      border-radius: 10px;
-      filter: drop-shadow(0px 4px 16px rgba(0, 0, 0, 0.15));
+    border-radius: 10px;
+    filter: drop-shadow(0px 4px 16px rgba(0, 0, 0, 0.15));
+  }
+}
+.Detail__desc {
+  align-self: flex-end;
+  font-family: "Italianno";
+  font-style: normal;
+  font-weight: normal;
+  max-width: 341px;
+  width: 100%;
+  margin: 0;
+  p {
+    margin: 0;
+    font-size: 50px;
+    line-height: 40px;
+    letter-spacing: 0.135em;
+
+    &:last-child {
+      text-align: right;
     }
   }
 
-  .Detail__desc {
-    align-self: flex-end;
-    font-family: "Italianno";
-    font-style: normal;
-    font-weight: normal;
-    font-size: 50px;
-    line-height: 51px;
-    letter-spacing: 0.135em;
-    @include tablet() {
-      font-size: 25px;
-    }
+  @include tablet() {
+    font-size: 25px;
   }
 }
