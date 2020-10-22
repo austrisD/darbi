@@ -27,8 +27,13 @@ $mobile-width: 420px;
 }
 
 body {
+  margin: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.root {
   box-sizing: border-box;
-  background-image: url(./carbonBG.jpg);
   background-size: cover;
   margin: 0;
   padding: 64px 80px;

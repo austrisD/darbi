@@ -1,6 +1,6 @@
 import React from "react";
 import "./motoselect.scss";
-import { motorSpec, languages } from "../data/data";
+import { motorSpec } from "../data/data";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 const MotoSelect = () => {
@@ -13,8 +13,6 @@ const MotoSelect = () => {
       ></div>
     );
   });
-  console.log(motorSpec[0].setHeight);
-
   return (
     <main>
       <div className="brandLogo"></div>
@@ -58,11 +56,10 @@ const MotoSelect = () => {
         </div>
         <div className="rightContent">
           <div className="colorAvailable">{displayColors}</div>
-          <p className="Detail__desc">
+          <div className="Detail__desc">
             <p>Fresh vibes.</p>
-            <br />
             <p>Sporty soul.</p>
-          </p>
+          </div>
         </div>
       </div>
     </main>
