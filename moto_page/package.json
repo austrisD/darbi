@@ -35,7 +35,6 @@
   },
   "devDependencies": {
     "sass": "^1.27.0",
-    "sass-loader": "^10.0.3",
-    "webpack": "^5.2.0"
+    "sass-loader": "^10.0.3"
   }
 }
