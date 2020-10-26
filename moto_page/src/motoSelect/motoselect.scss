@@ -1,12 +1,15 @@
-@import "../assets/shared.scss";
+@import "../assets/main.scss";
 .brandLogo {
   width: 322px;
   height: 182px;
-  margin: 0 auto;
   margin-top: -32px;
   background-image: url(../assets/ducati_monster.png);
   background-size: contain;
   background-repeat: no-repeat;
+  @include tablet() {
+    margin-top: 10px;
+    transition: 500ms;
+  }
 }
 
 .motoDisplay {
@@ -19,28 +22,36 @@
   height: 650px;
   background-size: contain;
   background-repeat: no-repeat;
-  background-position: bottom;
+  background-position: center;
   width: 100%;
   margin: 0 auto -200px auto;
   position: relative;
   z-index: 2;
-  @media (max-width: 1370px) {
-    // max-width: 850px;
-  }
-  @include tablet() {
-    margin-bottom: -100px;
-  }
   svg {
     fill: #fff;
     width: 70px;
     height: 70px;
+    @include tablet() {
+      width: 32px;
+      height: 32px;
+    }
+  }
+  @include large() {
+    height: 550px;
+    transition: 500ms;
+  }
+
+  @include tablet() {
+    height: 365px;
+    margin-bottom: -150px;
+    transition: 500ms;
   }
 }
 
 .details {
   align-self: center;
   box-sizing: border-box;
-  padding: 44px 80px 70px 80px;
+  padding: 70px 80px 70px 80px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -53,8 +64,12 @@
   margin: 0 auto;
   z-index: 1;
   margin-bottom: 80px;
+  transition: 500ms;
   @include large() {
-    padding-top: 170px;
+    padding-top: 110px;
+  }
+  @include tablet() {
+    padding: 110px 40px 35px 40px;
   }
   .generalInfo {
     display: flex;
@@ -62,6 +77,7 @@
     height: fit-content;
     p {
       margin: 0;
+      white-space: nowrap;
     }
     p:nth-child(odd) {
       font-family: Lato;
@@ -70,9 +86,6 @@
       font-size: 12px;
       line-height: 14px;
       color: #181818;
-      @include tablet() {
-        font-size: 9px;
-      }
     }
 
     p:nth-child(even) {
@@ -84,8 +97,11 @@
       letter-spacing: 0.095em;
       color: #181818;
       margin-bottom: 11px;
+      transition: 500ms;
       @include tablet() {
-        font-size: 12px;
+        letter-spacing: 0;
+        line-height: 18px;
+        font-size: 15px;
       }
     }
   }
@@ -96,10 +112,15 @@
   align-items: flex-end;
   justify-content: space-between;
   width: 70%;
+  transition: 500ms;
   @include large() {
     flex-direction: column;
+    justify-content: flex-end;
+    gap: 20px;
+    align-items: center;
+  }
+  @include tablet() {
     justify-content: center;
-    gap: 30px;
   }
 }
 .colorAvailable {
@@ -107,15 +128,21 @@
   flex-direction: row;
   justify-content: space-between;
   max-width: 385px;
-  width: 50%;
-  @include large() {
-    width: 80%;
+  gap: 10px;
+  transition: 500ms;
+  @include tablet() {
+    justify-content: space-between;
   }
   .colorSquare {
     width: 80px;
     height: 80px;
     border-radius: 10px;
+    transition: 500ms;
     filter: drop-shadow(0px 4px 16px rgba(0, 0, 0, 0.15));
+    @include tablet() {
+      width: 40px;
+      height: 40px;
+    }
   }
 }
 .Detail__desc {
@@ -126,18 +153,56 @@
   max-width: 341px;
   width: 100%;
   margin: 0;
+  @include tablet() {
+    align-self: center;
+    max-width: 150px;
+  }
   p {
     margin: 0;
     font-size: 50px;
     line-height: 40px;
     letter-spacing: 0.135em;
-
+    transition: 500ms;
     &:last-child {
       text-align: right;
     }
+    @include tablet() {
+      font-size: 25px;
+      letter-spacing: 0.05em;
+      line-height: 20px;
+    }
   }
+}
 
-  @include tablet() {
-    font-size: 25px;
+@keyframes hoverLeft {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-10px);
+  }
+}
+@keyframes hoverRight {
+  from {
+    transform: translateX();
+  }
+  to {
+    transform: translateX(+10px);
+  }
+}
+.hoverLeft {
+  transition: 1s;
+  &:hover {
+    animation: hoverLeft alternate-reverse 500ms infinite forwards
+      cubic-bezier(0.88, 0.07, 0.56, 0.94);
+    transition: 1s;
+  }
+}
+.hoverRight {
+  transition: 1s;
+  &:hover {
+    animation: hoverLeft alternate-reverse 500ms infinite forwards
+      cubic-bezier(0.88, 0.07, 0.56, 0.94);
+    transition: 1s;
   }
 }

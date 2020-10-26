@@ -1,4 +1,6 @@
 import ducati_monster_803 from "../assets/Ducati_monster_797.png";
+import ducati_monster_821 from "../assets/Ducati_monster_821.png";
+import Ducati_monster_797_grey from "../assets/Ducati_monster_797_grey.png";
 
 class motorConstruct {
   constructor(
@@ -44,6 +46,34 @@ export const motorSpec = [
     ["#DF1F26", "#141414", "#FFFFFF"],
     "Fresh vibes. Sporty soul.",
     ducati_monster_803
+  ),
+  new motorConstruct(
+    "Ducati",
+    "Monster",
+    2019,
+    821,
+    109,
+    86,
+    180.5,
+    805,
+    "ABS",
+    ["#DF1F26", "#141414", "#FFFFFF"],
+    "Fresh vibes. Sporty soul.",
+    ducati_monster_821
+  ),
+  new motorConstruct(
+    "Ducati",
+    "Monster",
+    2019,
+    803,
+    73,
+    67,
+    175,
+    805,
+    "ABS",
+    ["#DF1F26", "#141414", "#FFFFFF"],
+    "Fresh vibes. Sporty soul.",
+    Ducati_monster_797_grey
   ),
 ];
 

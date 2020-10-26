@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./assets/shared.scss";
+import "./assets/main.scss";
 import MotoSelect from "./motoSelect/motoselect";
 import { AiOutlineMenu } from "react-icons/ai";
 import { FaGlobeEurope } from "react-icons/fa";
@@ -28,18 +28,18 @@ const App = () => {
     setValues: (ev) => {
       mouseLoc.mouseX = ev.pageX > old_mouseX ? "right" : "left";
       mouseLoc.mouseY = ev.pageY > old_mouseY ? "up" : "down";
-      if (mouseLoc.mouseX === "right" && outValueX < 60) {
+      if (mouseLoc.mouseX === "right" && outValueX < 70) {
         outValueX = outValueX + 0.1;
       }
-      if (mouseLoc.mouseX === "left" && outValueX > 40) {
+      if (mouseLoc.mouseX === "left" && outValueX > 30) {
         outValueX = outValueX - 0.1;
       }
       /*horizontal*/
-      if (mouseLoc.mouseY === "up" && outValueY < 45) {
-        outValueY = outValueY + 0.1;
+      if (mouseLoc.mouseY === "up" && outValueY < 60) {
+        outValueY = outValueY + 0.2;
       }
-      if (mouseLoc.mouseY === "down" && outValueY > 35) {
-        outValueY = outValueY - 0.1;
+      if (mouseLoc.mouseY === "down" && outValueY > 20) {
+        outValueY = outValueY - 0.2;
       }
       /*vertical*/
       old_mouseX = ev.pageX;
@@ -48,11 +48,11 @@ const App = () => {
       setGradientY(outValueY);
     },
     log: () => {
-      console.log(`x:${mouseLoc.mouseX} `);
-      console.log(`outX: ${mouseLoc.outValueX}`);
-      // console.log(`outY: ${mouseLoc.outValueY} Y:${mouseLoc.mouseY}`);
+      console.log(`x:${outValueX} `);
+      console.log(`outX: ${outValueY}`);
     },
   };
+  //must optimize this !!!! its is lagy
   let [GradientX, setGradientX] = useState(50);
   let [GradientY, setGradientY] = useState(40);
 
@@ -60,13 +60,10 @@ const App = () => {
     <div
       className="root"
       style={{
-        backgroundImage: `radial-gradient(circle at ${GradientX}% ${GradientY}%, #00000000 30%, #000000d0 40%),url(${Bg})`,
+        backgroundImage: `radial-gradient(circle at ${GradientX}% ${GradientY}%, #00000000 20%, #000000d0 40%),url(${Bg})`,
       }}
       onMouseMove={(ev) => {
         mouseLoc.setValues(ev);
-      }}
-      onClick={() => {
-        mouseLoc.log();
       }}
     >
       <Header />

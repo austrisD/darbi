@@ -1,58 +1,81 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./motoselect.scss";
 import { motorSpec } from "../data/data";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
+let displayColors = motorSpec[0].color.map((color) => {
+  return (
+    <div
+      className="colorSquare"
+      style={{ backgroundColor: color }}
+      key={color}
+    ></div>
+  );
+});
+let act = 0;
+
 const MotoSelect = () => {
-  let displayColors = motorSpec[0].color.map((color) => {
-    return (
-      <div
-        className="colorSquare"
-        style={{ backgroundColor: color }}
-        key={color}
-      ></div>
-    );
-  });
+  const [ChangeMoto, setChangeMoto] = useState(0);
+
+  let swapMoto = (val) => {
+    act = val === "+" ? act + 1 : act - 1;
+    if (act > motorSpec.length - 1) act = 0;
+    if (act < 0) act = motorSpec.length - 1;
+    setChangeMoto(act);
+  };
+
   return (
     <main>
       <div className="brandLogo"></div>
       <div
         className="motoDisplay"
-        style={{ backgroundImage: `url(${motorSpec[0].photo})` }}
+        style={{ backgroundImage: `url(${motorSpec[ChangeMoto].photo})` }}
       >
-        <FaChevronLeft className="leftArrow" />
-        <FaChevronRight className="rightArrow" />
+        <FaChevronLeft
+          className="hoverLeft"
+          onClick={() => {
+            swapMoto("-");
+          }}
+        />
+        <FaChevronRight
+          className="hoverRight"
+          onClick={() => {
+            swapMoto("+");
+          }}
+        />
       </div>
       <div className="details">
         <div className="generalInfo">
           <p>{"Displacement"}</p>
-          <p>{motorSpec[0].cc} cc</p>
+          <p>{motorSpec[ChangeMoto].cc} cc</p>
 
           <p>{"Horse Power"}</p>
           <p>
-            {motorSpec[0].hp}hp ({Math.floor(motorSpec[0].hp * 0.7456)}kW)
+            {motorSpec[ChangeMoto].hp}hp (
+            {Math.floor(motorSpec[ChangeMoto].hp * 0.7456)}
+            kW)
           </p>
 
           <p>{"Torque"}</p>
           <p>
-            {motorSpec[0].nm} Nm (
-            {Math.floor(motorSpec[0].nm * 0.7375) + " Ib-ft"})
+            {motorSpec[ChangeMoto].nm} Nm (
+            {Math.floor(motorSpec[ChangeMoto].nm * 0.7375) + " Ib-ft"})
           </p>
 
           <p>{"Dry Weight"}</p>
           <p>
-            {motorSpec[0].weight} Kg (
-            {Math.floor(motorSpec[0].weight * 2.2046) + " Ib"})
+            {motorSpec[ChangeMoto].weight} Kg (
+            {Math.floor(motorSpec[ChangeMoto].weight * 2.2046) + " Ib"})
           </p>
 
           <p>{"Seat Height"}</p>
           <p>
-            {motorSpec[0].setHeight} mm (
-            {Math.floor(motorSpec[0].setHeight * 0.03937) + " In"})
+            {motorSpec[ChangeMoto].setHeight} mm (
+            {Math.floor(motorSpec[ChangeMoto].setHeight * 0.03937) + " In"})
           </p>
 
           <p>{"safety"}</p>
-          <p>{motorSpec[0].brake}</p>
+          <p>{motorSpec[ChangeMoto].brake}</p>
         </div>
         <div className="rightContent">
           <div className="colorAvailable">{displayColors}</div>
